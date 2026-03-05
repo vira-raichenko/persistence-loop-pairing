@@ -1,0 +1,12 @@
+.claude/
+.idea/
+__pycache__/
+*.pyc
+*.npy
+*.pkl
+*.nc
+prepare_data.py
+dilate_cycles.py
+extract_pd.py
+cycles/
+.venv/
