@@ -10,12 +10,29 @@ This is the algorithm described in Section 1.2 of the Supporting Information of:
 
 ## Overview
 
-The algorithm takes two inputs:
+The input is voxelised 3D data representing a network skeleton with loops:
 
-1. **A folder of cycle `.poly` files** (`net_cycle_<label>.poly`) — geometric loop representatives from a minimum cycle basis of a network skeleton.
-2. **A persistence diagram CSV** — birth/death pairs with 3D coordinates, pre-filtered to contain only points that correspond to real loops (e.g. after thresholding on persistence or other criteria).
+<p align="center">
+  <img src="images/data.png" width="400" alt="Voxelised input data">
+</p>
 
-It outputs a pairing that assigns each persistence pair to the geometric loop it most likely represents.
+The corresponding persistence diagram contains birth/death pairs (cubes = birth points, spheres = death points, sphere size proportional to death value). The persistence pairs are pre-filtered to keep only those with death > 1.5, which correspond to real loops rather than noise:
+
+<p align="center">
+  <img src="images/persistence_diagram.png" width="400" alt="Persistence diagram with birth (cubes) and death (spheres) points">
+</p>
+
+The geometric loops extracted from the minimum cycle basis of the skeleton are the candidates for matching:
+
+<p align="center">
+  <img src="images/loops.png" width="400" alt="Geometric loop cycles">
+</p>
+
+The algorithm pairs each persistence point to its corresponding geometric loop. The final matching is shown below, with death points (spheres) matched to their loops:
+
+<p align="center">
+  <img src="images/matching.png" width="400" alt="Final matching of persistence pairs to loops">
+</p>
 
 ## Algorithm
 
@@ -47,15 +64,17 @@ Inputs are hardcoded in `pairing.py`:
 - **Cycles directory**: folder containing `net_cycle_*.poly` files
 - **Persistence CSV**: `birth,death,x_b,y_b,z_b,x_d,y_d,z_d`
 
-The labeled volume and voxel-to-label mapping are built automatically from the `.poly` files at startup — no separate preparation step is needed.
+The persistence diagram is pre-filtered with death > 1.5 to select only pairs that correspond to real loops. The labeled volume and voxel-to-label mapping are built automatically from the `.poly` files at startup — no separate preparation step is needed.
 
 ## Example Data
 
 - `cycles/` — input cycle `.poly` files (`net_cycle_<label>.poly`) representing geometric loops from a minimum cycle basis. These are the loops that get matched with persistence diagram pairs.
-- `data/cycles_bd.csv` — pre-filtered persistence diagram (birth/death pairs corresponding to real loops)
+- `data/cycles_bd.csv` — pre-filtered persistence diagram (birth/death pairs with death > 1.5, corresponding to real loops)
 - `data/dilated/all_cycles.poly` — all loop cycles combined into a single dilated point cloud (for visualization)
 
 ## Output
+
+All outputs are saved to `pairing_results/`.
 
 ### `labeled_birth_loop_local.npy`
 
@@ -94,7 +113,7 @@ birth,death,x_b,y_b,z_b,x_d,y_d,z_d
 1.7,11.7,38.0,83.0,108.5,23.5,89.5,104.0
 ```
 
-The `birth` and `death` columns are scalar persistence values. Columns `x_b,y_b,z_b` and `x_d,y_d,z_d` are the 3D coordinates of the birth and death critical points.
+The `birth` and `death` columns are scalar persistence values. Columns `x_b,y_b,z_b` and `x_d,y_d,z_d` are the 3D coordinates of the birth and death critical points. Only pairs with death > 1.5 are used.
 
 ### Cycle `.poly` files
 
