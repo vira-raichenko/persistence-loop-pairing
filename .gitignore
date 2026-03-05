@@ -8,5 +8,5 @@ __pycache__/
 prepare_data.py
 dilate_cycles.py
 extract_pd.py
-cycles/
+pairing_results/
 .venv/

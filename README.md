@@ -6,6 +6,7 @@ This is the algorithm described in Section 1.2 of the Supporting Information of:
 
 > **Topological Analysis of Multi-Network Architecture in the Pancreas**
 > Raichenko, Maaruf, Nyeng, Evans (2026)
+> https://www.biorxiv.org/content/10.64898/2026.03.02.708973v1
 
 ## Overview
 
@@ -48,11 +49,11 @@ Inputs are hardcoded in `pairing.py`:
 
 The labeled volume and voxel-to-label mapping are built automatically from the `.poly` files at startup — no separate preparation step is needed.
 
-## Example
+## Example Data
 
-The `data/` directory contains an example:
-- `data/dilated/all_cycles.poly` — all loop cycles combined into a single dilated point cloud
-- `data/cycles_bd.csv` — pre-filtered persistence diagram
+- `cycles/` — input cycle `.poly` files (`net_cycle_<label>.poly`) representing geometric loops from a minimum cycle basis. These are the loops that get matched with persistence diagram pairs.
+- `data/cycles_bd.csv` — pre-filtered persistence diagram (birth/death pairs corresponding to real loops)
+- `data/dilated/all_cycles.poly` — all loop cycles combined into a single dilated point cloud (for visualization)
 
 ## Output
 

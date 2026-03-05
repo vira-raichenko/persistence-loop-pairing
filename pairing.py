@@ -525,7 +525,9 @@ def choose_best_candidate(eligible):
 def main():
     persistence_csv = "/home/vira/persistence-loop-pairing/data/cycles_bd.csv"
     cycles_dir = Path("/home/vira/persistence-loop-pairing/cycles")
-    output_path = cycles_dir / "labeled_birth_loop_local.npy"
+    results_dir = Path("/home/vira/persistence-loop-pairing/pairing_results")
+    results_dir.mkdir(parents=True, exist_ok=True)
+    output_path = results_dir / "labeled_birth_loop_local.npy"
 
     # Load persistence diagram
     print(f"Loading persistence diagram from {persistence_csv} ...")
@@ -601,8 +603,8 @@ def main():
     signal.signal(signal.SIGTERM, _term_handler)
 
     # Reports
-    decisions_path = cycles_dir / "decisions_all.txt"
-    collisions_path = cycles_dir / "collisions_report.txt"
+    decisions_path = results_dir / "decisions_all.txt"
+    collisions_path = results_dir / "collisions_report.txt"
     f_dec = open_report(decisions_path) if WRITE_REPORTS else None
 
     # State
@@ -927,7 +929,7 @@ def main():
         print(f"  reports: {decisions_path}, {collisions_path}")
 
     # ---- Write visualization .poly (death point <-> loop point edges) ----
-    vis_poly_path = cycles_dir / "matching_vis.poly"
+    vis_poly_path = results_dir / "matching_vis.poly"
     point_idx = 1
     points_lines = []
     edges = []
