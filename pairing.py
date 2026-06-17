@@ -28,6 +28,7 @@ Usage:
 
 from pathlib import Path
 from collections import defaultdict
+import argparse
 import os
 import re
 import csv
@@ -523,9 +524,23 @@ def choose_best_candidate(eligible):
 
 
 def main():
-    persistence_csv = "/home/vira/persistence-loop-pairing/data/cycles_bd.csv"
-    cycles_dir = Path("/home/vira/persistence-loop-pairing/cycles")
-    results_dir = Path("/home/vira/persistence-loop-pairing/pairing_results")
+    script_dir = Path(__file__).resolve().parent
+    ap = argparse.ArgumentParser(
+        description="Match persistence birth/death pairs to loop cycles.")
+    ap.add_argument("--cycles-dir", type=Path,
+                    default=script_dir / "cycles",
+                    help="Folder containing net_cycle_*.poly loop files.")
+    ap.add_argument("--persistence", type=Path,
+                    default=script_dir / "data" / "cycles_bd.csv",
+                    help="Persistence diagram CSV (birth,death,x_b,y_b,z_b,x_d,y_d,z_d).")
+    ap.add_argument("--results-dir", type=Path,
+                    default=script_dir / "pairing_results",
+                    help="Output folder for results and reports.")
+    args = ap.parse_args()
+
+    persistence_csv = str(args.persistence)
+    cycles_dir = args.cycles_dir
+    results_dir = args.results_dir
     results_dir.mkdir(parents=True, exist_ok=True)
     output_path = results_dir / "labeled_birth_loop_local.npy"
 
