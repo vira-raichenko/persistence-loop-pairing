@@ -6,7 +6,7 @@ Matches persistence diagram birth/death pairs to geometric loop cycle
 representatives extracted from a minimum cycle basis of a network skeleton.
 
 Algorithm described in:
-    "Topological Analysis of Multi-Network Architecture in the Pancreas"
+    "Topological Analysis of Multi-Network Threading in the Pancreas"
     Raichenko, Maaruf, Nyeng, Evans (2026)
     Supporting Information, Section 1.2
 

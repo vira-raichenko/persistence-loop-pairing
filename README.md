@@ -2,7 +2,7 @@
 
 Code for the loop-analysis pipeline used in:
 
-> **Topological Analysis of Multi-Network Architecture in the Pancreas**
+> **Topological Analysis of Multi-Network Threading in the Pancreas**
 > Raichenko, Maaruf, Nyeng, Evans (2026)
 > https://www.biorxiv.org/content/10.64898/2026.03.02.708973v1
 
