@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite both the software itself and the associated paper (see preferred-citation)."
+title: "Loop Basis Extraction, Pairing, Threading and Classification"
+abstract: >-
+  A loop-analysis pipeline for topological data analysis of 3D network images.
+  Given a network skeleton and its persistence diagram, it extracts the
+  geometric loops of the network (minimum cycle basis), pairs them with the
+  persistence birth/death points, and classifies each loop as threaded or not
+  threaded using the persistence information of the individual networks and
+  their union.
+type: software
+authors:
+  - family-names: Raichenko
+    given-names: Vira
+  - family-names: Maaruf
+    given-names: Rebin
+  - family-names: Nyeng
+    given-names: Pia
+  - family-names: Evans
+    given-names: Myfanwy
+license: MIT
+repository-code: "https://github.com/vira-raichenko/persistence-loop-pairing"
+version: 1.0.0
+date-released: "2026-06-19"
+preferred-citation:
+  type: article
+  title: "Topological Analysis of Multi-Network Threading in the Pancreas"
+  authors:
+    - family-names: Raichenko
+      given-names: Vira
+    - family-names: Maaruf
+      given-names: Rebin
+    - family-names: Nyeng
+      given-names: Pia
+    - family-names: Evans
+      given-names: Myfanwy
+  year: 2026
+  url: "https://www.biorxiv.org/content/10.64898/2026.03.02.708973v1"

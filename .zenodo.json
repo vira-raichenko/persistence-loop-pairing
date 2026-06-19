@@ -1,0 +1,27 @@
+{
+  "title": "Loop Basis Extraction, Pairing, Threading and Classification",
+  "description": "A loop-analysis pipeline for topological data analysis of 3D network images. Given a network skeleton and its persistence diagram, it extracts the geometric loops of the network (minimum cycle basis), pairs them with the persistence birth/death points, and classifies each loop as threaded or not threaded using the persistence information of the individual networks and their union. Code accompanying Raichenko, Maaruf, Nyeng & Evans (2026), 'Topological Analysis of Multi-Network Threading in the Pancreas'.",
+  "upload_type": "software",
+  "license": "MIT",
+  "creators": [
+    { "name": "Raichenko, Vira" },
+    { "name": "Maaruf, Rebin" },
+    { "name": "Nyeng, Pia" },
+    { "name": "Evans, Myfanwy" }
+  ],
+  "keywords": [
+    "topological data analysis",
+    "persistent homology",
+    "persistence diagram",
+    "minimum cycle basis",
+    "pancreas",
+    "network threading"
+  ],
+  "related_identifiers": [
+    {
+      "relation": "isSupplementTo",
+      "identifier": "https://www.biorxiv.org/content/10.64898/2026.03.02.708973v1",
+      "scheme": "url"
+    }
+  ]
+}

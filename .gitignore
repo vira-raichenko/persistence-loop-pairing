@@ -8,5 +8,11 @@ __pycache__/
 prepare_data.py
 dilate_cycles.py
 extract_pd.py
+crop_example.py
+crop_networks.py
+CODE_RELEASE_PLAN.txt
+STATUS.md
+CLAUDE.md
 pairing_results/
+.venv
 .venv/
