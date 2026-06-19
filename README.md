@@ -1,5 +1,7 @@
 # Loop Basis Extraction, Pairing, Threading and Classification
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20759074.svg)](https://doi.org/10.5281/zenodo.20759074)
+
 Code for the loop-analysis pipeline used in:
 
 > **Topological Analysis of Multi-Network Threading in the Pancreas**
